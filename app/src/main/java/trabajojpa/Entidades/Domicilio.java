@@ -6,12 +6,9 @@ import javax.persistence.*;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.NonNull;
-import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "domicilio")
-@RequiredArgsConstructor
 @Data
 @NoArgsConstructor
 public class Domicilio implements Serializable {
@@ -22,10 +19,16 @@ public class Domicilio implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @NonNull
     private String nombreCalle;
 
     @Column(unique = false)
-    @NonNull
     private int numero;
+
+    @OneToOne(mappedBy = "domicilio")
+    private Cliente cliente;
+
+    public Domicilio(String nombreCalle, int numero) {
+        this.nombreCalle = nombreCalle;
+        this.numero = numero;
+    }
 }

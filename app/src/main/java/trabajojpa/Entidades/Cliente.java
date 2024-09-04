@@ -1,13 +1,10 @@
 package trabajojpa.Entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -30,6 +27,13 @@ public class Cliente implements Serializable {
 
     @Column(unique = false)
     private int dni;
+
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "domicilioCliente")
+    private Domicilio domicilio;
+
+    @OneToMany(mappedBy = "factura")
+    private Set<Factura> factura = new HashSet<Factura>();
 
     public Cliente(String nombreCliente, String apellidoCliente, int dni) {
         this.nombreCliente = nombreCliente;

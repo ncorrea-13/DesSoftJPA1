@@ -1,8 +1,8 @@
 package trabajojpa.Entidades;
 
-import java.util.Set;
-import java.util.HashSet;
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -13,7 +13,6 @@ import lombok.NoArgsConstructor;
 @Table(name = "factura")
 @Data
 @NoArgsConstructor
-
 public class Factura implements Serializable {
 
     private static final long serialVersionUID = 1L;
@@ -31,8 +30,11 @@ public class Factura implements Serializable {
     private int total;
 
     @ManyToOne(cascade = CascadeType.PERSIST)
-    private Cliente cliFactura;
+    @JoinColumn(name = "cliFactura")
+    private Cliente cliente;
 
-    private Set<DetalleFactura> detalleFactura = new HashSet<>();
+    @OneToMany(mappedBy = "factura", cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn(name = "factura")
+    private Set<DetalleFactura> detalleFactura = new HashSet<DetalleFactura>();
 
 }

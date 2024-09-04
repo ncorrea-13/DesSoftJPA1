@@ -1,6 +1,8 @@
 package trabajojpa.Entidades;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -21,6 +23,9 @@ public class Categoria implements Serializable {
     private Long id;
 
     private String denominacion;
+
+    @ManyToMany(mappedBy = "categoria")
+    private Set<Articulo> articulo = new HashSet<Articulo>();
 
     public Categoria(String denominacion) {
         this.denominacion = denominacion;
