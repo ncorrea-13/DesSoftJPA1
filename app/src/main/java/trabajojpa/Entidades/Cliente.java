@@ -32,7 +32,7 @@ public class Cliente implements Serializable {
     @JoinColumn(name = "domicilioCliente")
     private Domicilio domicilio;
 
-    @OneToMany(mappedBy = "factura")
+    @OneToMany(mappedBy = "cliente")
     private Set<Factura> factura = new HashSet<Factura>();
 
     public Cliente(String nombreCliente, String apellidoCliente, int dni) {

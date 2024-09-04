@@ -16,7 +16,7 @@ public class App {
     public static void main(String[] args) {
 
         // crea el EntytyManagerFactory
-        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("unidadPersistencia");
+        EntityManagerFactory entityManagerFactory = Persistence.createEntityManagerFactory("example-unit");
         System.out.printf("EntityManagerFactory Creado");
 
         // crea el EntityManager

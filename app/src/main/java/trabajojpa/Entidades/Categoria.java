@@ -25,7 +25,7 @@ public class Categoria implements Serializable {
     private String denominacion;
 
     @ManyToMany(mappedBy = "categoria")
-    private Set<Articulo> articulo = new HashSet<Articulo>();
+    private Set<Articulo> articulo = new HashSet<>();
 
     public Categoria(String denominacion) {
         this.denominacion = denominacion;

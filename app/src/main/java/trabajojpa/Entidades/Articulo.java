@@ -29,7 +29,7 @@ public class Articulo implements Serializable {
     private Set<DetalleFactura> detalleFactura = new HashSet<DetalleFactura>();
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "articuloCategoria", joinColumns = @JoinColumn(name = "idArticulo"), inverseJoinColumns = @JoinColumn(name = "idColumna"))
+    @JoinTable(name = "articulo_categoria", joinColumns = @JoinColumn(name = "id_Articulo"), inverseJoinColumns = @JoinColumn(name = "id_Categoria"))
     private Set<Categoria> categoria = new HashSet<>();
 
     public Articulo(int cantidad, String denominacion, int precio) {
