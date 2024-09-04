@@ -80,9 +80,6 @@ public class App {
 
             entityManager.getTransaction().commit();
 
-            // Consultar y mostrar la entidad persistida
-            // Persona retrievedPerson = entityManager.find(Persona.class, person.getId());
-            // System.out.println("Retrieved Person: " + retrievedPerson.getName());
         } catch (Exception e) {
 
             entityManager.getTransaction().rollback();
