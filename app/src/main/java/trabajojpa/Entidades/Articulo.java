@@ -26,10 +26,10 @@ public class Articulo implements Serializable {
     private int precio;
 
     @OneToMany(mappedBy = "articulo", cascade = CascadeType.PERSIST)
-    private Set<DetalleFactura> detalleFactura = new HashSet<DetalleFactura>();
+    private Set<DetalleFactura> detalleFactura = new HashSet<>();
 
     @ManyToMany(cascade = { CascadeType.PERSIST, CascadeType.MERGE })
-    @JoinTable(name = "articulo_categoria", joinColumns = @JoinColumn(name = "id_Articulo"), inverseJoinColumns = @JoinColumn(name = "id_Categoria"))
+    @JoinTable(name = "articulo_categoria", joinColumns = @JoinColumn(name = "id_articulo"), inverseJoinColumns = @JoinColumn(name = "id_categoria"))
     private Set<Categoria> categoria = new HashSet<>();
 
     public Articulo(int cantidad, String denominacion, int precio) {
