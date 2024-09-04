@@ -7,12 +7,14 @@ import java.util.Set;
 import javax.persistence.*;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.RequiredArgsConstructor;
 
 @Entity
 @Table(name = "cliente")
 @Data
 @RequiredArgsConstructor
+@EqualsAndHashCode(exclude = { "factura" })
 public class Cliente implements Serializable {
 
     private static final long serialVersionUID = 1L;

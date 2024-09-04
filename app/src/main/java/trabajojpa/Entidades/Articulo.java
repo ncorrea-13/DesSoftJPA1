@@ -7,10 +7,12 @@ import java.util.Set;
 import javax.persistence.*;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 @Entity
 @Table(name = "articulo")
 @Data
+@EqualsAndHashCode(exclude = { "categoria", "detalleFactura" })
 public class Articulo implements Serializable {
 
     private static final long serialVersionUID = 1L;

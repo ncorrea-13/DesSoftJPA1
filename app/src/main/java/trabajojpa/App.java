@@ -74,7 +74,7 @@ public class App {
             det2.setFactura(fact1);
 
             fact1.setTotal(120);
-            entityManager.persist(cli1);
+            entityManager.persist(fact1);
 
             entityManager.flush();
 
